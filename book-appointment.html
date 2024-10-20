@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <a href="home.html"><h1>Book an Appointment</h1></a>
+    </header>
+
+    <div class="container">
+        <form id="appointment-form">
+            <label for="student-number">Student Number:</label>
+            <input type="text" id="student-number" required placeholder="Enter your student number">
+
+            <label for="appointment-date">Choose a Date:</label>
+            <input type="date" id="appointment-date" required>
+
+            <label for="appointment-time">Choose a Time:</label>
+            <input type="time" id="appointment-time" required>
+
+            <label for="doctor">Choose a Doctor:</label>
+            <select id="doctor" required>
+                <option value="Dr. Smith">Dr. Smith</option>
+                <option value="Dr. Johnson">Dr. Johnson</option>
+                <option value="Dr. Lee">Dr. Lee</option>
+            </select>
+
+            <button type="submit">Book Appointment</button>
+        </form>
+
+        <div id="appointment-list">
+            <h2>Upcoming Appointments</h2>
+            <ul id="appointment-list-ul"></ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Campus Clinic</p>
+    </footer>
+
+    <script>
+        // Function to display the appointments
+        function displayAppointments() {
+            const appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+            const appointmentList = document.getElementById('appointment-list-ul');
+
+            // Sort appointments by doctor's name
+            appointments.sort((a, b) => a.doctor.localeCompare(b.doctor));
+
+            // Clear previous list
+            appointmentList.innerHTML = '';
+
+            // Add each appointment to the list
+            appointments.forEach((appointment) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Student Number: ${appointment.studentNumber}, Date: ${appointment.date}, Time: ${appointment.time}, Doctor: ${appointment.doctor}`;
+                appointmentList.appendChild(listItem);
+            });
+        }
+
+        // Handle form submission
+        document.getElementById('appointment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const studentNumber = document.getElementById('student-number').value.trim();
+            const appointmentDate = document.getElementById('appointment-date').value;
+            const appointmentTime = document.getElementById('appointment-time').value;
+            const doctor = document.getElementById('doctor').value;
+
+            // Validate student number
+            if (!studentNumber) {
+                alert("Please enter your student number.");
+                return;  // Prevent form submission
+            }
+
+            // Get the day of the week for the chosen appointment date
+            const dateObj = new Date(appointmentDate);
+            const dayOfWeek = dateObj.getDay();  // 0 = Sunday, 6 = Saturday
+            
+            // Check if the selected day is a weekend (Saturday or Sunday)
+            if (dayOfWeek === 0 || dayOfWeek === 6) {
+                alert("Appointments cannot be booked on weekends (Saturday or Sunday).");
+                return;
+            }
+
+            // Check if the selected time is between 8 AM and 4 PM
+            const timeParts = appointmentTime.split(':');
+            const hour = parseInt(timeParts[0], 10);
+            if (hour < 8 || hour >= 16) {
+                alert("Appointments can only be booked between 8 AM and 4 PM.");
+                return;
+            }
+
+            // Save the appointment data in localStorage (or you can use a database in a real app)
+            let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+            appointments.push({
+                studentNumber: studentNumber,
+                date: appointmentDate,
+                time: appointmentTime,
+                doctor: doctor
+            });
+
+            // Sort the appointments by doctor's name before saving
+            appointments.sort((a, b) => a.doctor.localeCompare(b.doctor));
+
+            localStorage.setItem('appointments', JSON.stringify(appointments));
+
+            alert("Your appointment has been booked!");
+
+            // Reload the appointments list and reset form
+            displayAppointments();
+            document.getElementById('appointment-form').reset();
+        });
+
+        // Display appointments on page load
+        window.onload = displayAppointments;
+    </script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #660058;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+/* Container Styling */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Doctor Container Styling */
+.doctor-container {
+    margin-bottom: 40px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.doctor-container h3 {
+    margin: 0;
+    color: #003366;
+    padding-bottom: 10px;
+}
+
+.appointment-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.appointment-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.appointment-list li:last-child {
+    border-bottom: none;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #66004e;
+    color: white;
+    text-align: center;
+    padding: 0.2px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Styling for Booking Form and General Inputs */
+label {
+    margin-top: 10px;
+    display: block;
+    color: #003366;
+    font-weight: bold;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #008cba;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #005f7f;
+}
+
+button:active {
+    background-color: #004d66;
+}
+
+input:focus {
+    border: 1px solid #ffeb3b;
+    outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input, button {
+        font-size: 16px;
+    }
+}
+
+/* Image and Gallery Styling */
+.header-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.gallery-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* General Styling (continued from previous combined CSS) */
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.option {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.option h3 {
+    color: #003366;
+}
+
+.option p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.button {
+    display: inline-block;
+    background-color: #003366;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #002244;
+}
+
+/* Responsive Design for the Box Layout */
+@media (max-width: 768px) {
+    .options {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .option {
+        width: 90%;
+    }
+}
+
+/* General Styling for Practitioner Form */
+
+#practitioner-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#practitioner-form label {
+    font-weight: bold;
+    color: #003366;
+}
+
+#practitioner-form input, 
+#practitioner-form textarea, 
+#practitioner-form button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#practitioner-form button {
+    background-color: #003366;
+    color: white;
+    cursor: pointer;
+}
+
+#practitioner-form button:hover {
+    background-color: #002244;
+}
+
+#message {
+    margin-top: 20px;
+    color: green;
+    font-weight: bold;
+}
+
+/* Doctor History Sections */
+.doctor-history {
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.doctor-history h3 {
+    color: #003366;
+}
+
+.student-section {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-left: 4px solid #003366;
+    background-color: #f0f8ff;
+}
+
+.student-section h4 {
+    color: #003366;
+}
+
+.appointment-item {
+    margin-top: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.appointment-item:last-child {
+    border-bottom: none;
+}
+

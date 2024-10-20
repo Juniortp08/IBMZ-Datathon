@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practitioner Dashboard</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <h1><a href="home.html">Campus Clinic</a></h1>
+       
+    </header>
+
+    <!-- Practitioner Login Form -->
+    <div class="container" id="login-container">
+        <h2>Practitioner Login</h2>
+        <form id="practitioner-login-form">
+            <label for="password">Enter Practitioner Password:</label>
+            <input type="password" id="practitioner-password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="login-message"></p>
+    </div>
+
+    <!-- Practitioner Dashboard (Initially Hidden) -->
+    <div class="container" id="practitioner-dashboard" style="display: none;">
+        <h2>Practitioner Dashboard</h2>
+        <p>View and add consultation details for students.</p>
+
+        <!-- Form to Add Consultation Information -->
+        <form id="practitioner-form">
+            <label for="student-number">Student Number:</label>
+            <input type="text" id="student-number" placeholder="Enter Student Number" required>
+
+            <label for="consultation-date">Consultation Date:</label>
+            <input type="date" id="consultation-date" required>
+
+            <label for="consultation-reason">Consultation Reason:</label>
+            <textarea id="consultation-reason" placeholder="Enter the reason for the consultation" required></textarea>
+
+            <label for="medicine-given">Medicine Prescribed:</label>
+            <textarea id="medicine-given" placeholder="Enter the prescribed medicine" required></textarea>
+
+            <button type="submit">Add to Medical History</button>
+        </form>
+
+        <div id="message"></div>
+
+        <!-- Display Student's Medical History -->
+        <h2>Student Medical History</h2>
+        <label for="search-student-number">Enter Student Number:</label>
+        <input type="text" id="search-student-number" placeholder="Search by Student Number">
+        <button id="search-history">Search History</button>
+        <div id="student-history"></div>
+    </div>
+
+    <footer>
+        <p>© 2024 Campus Clinic</p>
+    </footer>
+
+    <script src="practitioner.js"></script>
+</body>
+</html>
